@@ -18,11 +18,11 @@ import java.util.ArrayList;
 public class Solution {
   public static int LongestSubsetWithZeroSum(int[] arr) {
       Map<Integer, Integer> map = new TreeSet<>();
-      int sum = 0;
+      int prefixSum = 0;
       for(int i = 0; i < arr.length; i++){
-          sum += arr[i];
+          prefixSum += arr[i];
           if(!map.containsKey(prefixSum)) map.put(prefixSum, 1);
-          else count = Math.max(prefixSum, i - map.get(prefixSum));
+          else count = Math.max(count, i - map.get(prefixSum));
         
           if(prefixSum == 0) count = Math.max(prefixSum, i + 1);
       }
