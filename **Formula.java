@@ -19,3 +19,9 @@ int sum = arr.stream().sum();
 
 Max in the integer in Array
 int max = arr.stream().max().getAsInt();
+
+
+lower Bound in a sorted array is nothing but smallest index such that arr[i] >= target (Binary search).
+
+Upper Bound in a sorted array is nothing but arr[i] > target (Binary search).
+ 
