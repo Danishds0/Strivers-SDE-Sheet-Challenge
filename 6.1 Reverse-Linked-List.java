@@ -8,7 +8,7 @@ import java.util.* ;
 
 public class Solution 
 {
-  public Node reverseList(ListNode head) {
+  public Node reverseList(Node head) {
         Node temp = null, prev = null, curr = head;
         while(curr != null){
             temp = curr.next;
