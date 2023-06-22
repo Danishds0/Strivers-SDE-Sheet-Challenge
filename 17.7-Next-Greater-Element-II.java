@@ -10,21 +10,37 @@
 
 // https://leetcode.com/problems/next-greater-element-ii/description/
 
-class Solution {
-    public int[] nextGreaterElements(int[] nums) {
-        int n = nums.length;
-        int nge[] = new int[n];
-        Stack<Integer> st = new Stack<>();
-        for (int i = 2 * n - 1; i >= 0; i--) {
-            while (!st.empty() && st.peek() <= nums[i % n]) {
-                st.pop();
-            }
-            if (i < n) {
-                nge[i] = !st.empty() ? st.peek() : -1;
-            }
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.Stack;
 
-            st.push(nums[i % n]);
+public class Next_Greater_Element_II {
+    public static int[] nextGreater(int[] nums){
+        Stack<Integer> stack = new Stack<>();
+        int n = nums.length;
+        int[] nge = new int[n];
+        for (int i = 2 * n - 1; i >= 0; i--) {
+            while(!stack.empty() && stack.peek() <= nums[i % n]){
+                stack.pop();
+            }
+            if(i < n){
+                nge[i] = stack.empty() ? -1 : stack.peek();
+            }
+            stack.push(nums[i % n]);
         }
         return nge;
     }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        int[] nums = new int[n];
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = scan.nextInt();
+        }
+        int[] ans = nextGreater(nums);
+        System.out.println(Arrays.toString(ans));
+        scan.close();
+    }
 }
+
