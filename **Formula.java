@@ -5,6 +5,10 @@ int[][] resultArray = list.stream().map(innerList -> innerList.stream().mapToInt
 Convert 2D Array to 2D List
 List<List<Integer>> list = Arrays.stream(resultArray).map(row -> Arrays.asList(row)).collect(Collectors.toList());
 
+Convert 2D Array to 2D ArrayList
+ distance = Arrays.stream(dist).map(row -> (ArrayList<Integer>) IntStream.of(row).boxed().collect(Collectors.toCollection(ArrayList::new)))
+            .collect(Collectors.toCollection(ArrayList::new));
+
 To Soert 2D array in a increasing form
 Arrays.sort(resultArray, (a, b) -> a[0] - b[0]);
 
